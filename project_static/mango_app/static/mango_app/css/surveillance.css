@@ -1,0 +1,170 @@
+/**
+ * Mango Surveillance Website - Surveillance Page Styles
+ */
+
+/* Surveillance Methods */
+.section-header {
+    background-color: #2e7d32;
+    color: white;
+    padding: 10px 15px;
+    margin: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 1.3em;
+}
+
+.section-content {
+    background-color: white;
+    padding: 15px;
+    margin-top: 0;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease;
+}
+
+/* Methods grid and cards */
+.methods-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+    align-items: stretch; /* Ensure all cards stretch to match the tallest */
+}
+
+.method-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Fixed height for all cards */
+}
+
+.method-card .section-header {
+    height: auto; /* Consistent height for headers */
+}
+
+.method-card .section-content {
+    flex: 1; /* Make content take available space */
+    display: flex;
+    flex-direction: column;
+    /* Fixed height calculation to ensure consistent heights */
+    min-height: 320px; /* Set a consistent minimum height */
+}
+
+.section-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+.bullet-list {
+    padding-left: 20px;
+    margin: 10px 0;
+    flex-grow: 0; /* Don't let lists grow */
+}
+
+.bullet-list li {
+    margin-bottom: 5px;
+}
+
+/* Benefits section */
+.benefits-container {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.benefits-list {
+    flex: 3;
+}
+
+.benefits-image {
+    flex: 2;
+    text-align: right;
+}
+
+.benefits-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    display: block;
+    object-fit: contain;
+}
+
+.benefit-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.benefits-note {
+    margin-top: 15px;
+}
+
+/* Planning section */
+.planning-columns {
+    display: flex;
+    gap: 20px;
+}
+
+.planning-column {
+    flex: 1;
+}
+
+.numbered-list {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.numbered-list li {
+    margin-bottom: 15px;
+}
+
+.monitoring-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.monitoring-table th, 
+.monitoring-table td {
+    border: 1px solid #ddd;
+    padding: 8px 10px;
+    text-align: left;
+}
+
+.monitoring-table th {
+    background-color: #e8f5e9;
+}
+
+.monitoring-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.monitoring-table tr:hover {
+    background-color: rgba(46, 125, 50, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+    .methods-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .method-card .section-content {
+        min-height: auto; /* Reset fixed height on mobile */
+    }
+    
+    .benefits-container {
+        flex-direction: column;
+    }
+    
+    .benefits-image {
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    .planning-columns {
+        flex-direction: column;
+    }
+}

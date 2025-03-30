@@ -1,0 +1,250 @@
+/**
+ * Mango Surveillance Website - Base Styles
+ * This file contains global and shared styles
+ */
+
+/* CSS Variables (Custom Properties) */
+:root {
+    --primary-color: #2e7d32;
+    --primary-dark: #1b5e20;
+    --primary-light: #e8f5e9;
+    --text-color: #333;
+    --bg-color: #f8f8f8;
+    --card-bg: #fff;
+    --border-color: #ddd;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --font-size-small: 0.9em;
+    --font-size-normal: 1em;
+    --font-size-medium: 1.2em;
+    --font-size-large: 1.5em;
+    --radius-small: 4px;
+    --radius-medium: 5px;
+}
+
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: var(--font-size-small);
+    background-color: var(--bg-color);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* Header Styles */
+header {
+    background-color: var(--primary-color);
+    padding: var(--spacing-sm) 0;
+    color: white;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    width: 85%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    border-radius: 10px;
+    height: 35px;
+    width: auto;
+    margin-right: 10px;
+    object-fit: contain;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #333;
+}
+
+/* Navigation */
+nav {
+    margin-left: auto;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 5px 0;
+    font-weight: normal;
+}
+
+nav ul li a:hover {
+    color: #dff0d8;
+}
+
+nav ul li a.active {
+    font-weight: 600; /* Semi-bold instead of full bold */
+    border-bottom: 2px solid white; /* Add back border that was removed */
+    padding-bottom: 3px;
+}
+
+/* Mobile Navigation Toggle */
+.mobile-nav-toggle {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+    padding: 5px;
+    margin-left: auto;
+}
+
+/* Main Content */
+.container {
+    width: 85%;
+    margin: var(--spacing-lg) auto;
+    max-width: 1200px;
+    overflow-x: hidden; /* Prevent horizontal scrolling on mobile */
+}
+
+h1 {
+    color: var(--text-color);
+    margin-bottom: var(--spacing-lg);
+    font-size: 2em;
+}
+
+/* Cards */
+.card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-medium);
+    box-shadow: 0 1px 3px var(--shadow-color);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.card h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+/* Footer */
+footer {
+    background-color: #1c1f24;
+    color: white;
+    padding: var(--spacing-lg) 0;
+    margin-top: calc(var(--spacing-lg) * 2);
+}
+
+.footer-container {
+    width: 85%;
+    margin: 0 auto;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-left,
+.footer-right {
+    line-height: 1.5;
+}
+
+footer a {
+    color: #6cc070;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design - Base */
+@media (max-width: 768px) {
+    .header-container {
+        flex-wrap: wrap;
+    }
+    
+    nav {
+        width: 100%;
+        margin-top: 10px;
+        display: none;
+    }
+    
+    nav.active {
+        display: block;
+    }
+    
+    nav ul {
+        flex-direction: column;
+    }
+    
+    nav ul li {
+        margin: 5px 0;
+        padding: 5px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+    }
+    
+    .container {
+        width: 95%;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-right {
+        margin-top: 15px;
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Ensure all images have proper responsive behavior */
+img {
+    max-width: 100%;
+    height: auto;
+}

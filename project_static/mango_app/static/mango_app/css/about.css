@@ -1,0 +1,112 @@
+/**
+ * Mango Surveillance Website - About Page Styles
+ */
+
+/* About Page Layout */
+.content-layout {
+    display: flex;
+    gap: 20px;
+}
+
+.content-layout .main-content {
+    flex: 2;
+    display: block;
+}
+
+.sidebar {
+    flex: 1;
+}
+
+.sidebar-section {
+    margin-bottom: 20px;
+}
+
+.sidebar-content {
+    background-color: white;
+    padding: 15px;
+    margin-top: 0;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.resource-link {
+    display: block;
+    color: #2e7d32;
+    text-decoration: none;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.resource-link:hover {
+    color: #1b5e20;
+    padding-left: 5px;
+}
+
+.resource-link:last-child {
+    border-bottom: none;
+}
+
+#resource-info-panel {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    border-left: 3px solid #2e7d32;
+}
+
+/* Disclaimer */
+.disclaimer {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.disclaimer h2 {
+    color: #333;
+    margin-top: 0;
+}
+
+.disclaimer-controls {
+    margin-top: 15px;
+}
+
+#acknowledge-btn {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#acknowledge-btn:hover {
+    background-color: #1b5e20;
+}
+
+#acknowledge-btn:disabled {
+    background-color: #9e9e9e;
+    cursor: default;
+}
+
+.acknowledgment-message {
+    color: #2e7d32;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#disclaimer.acknowledged {
+    opacity: 0.7;
+    transition: opacity 0.5s ease;
+}
+
+@media (max-width: 768px) {
+    .content-layout {
+        flex-direction: column;
+    }
+}
