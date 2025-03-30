@@ -15,70 +15,19 @@
 
 <!-- All Disease Cards in a single grid container -->
 <div class="disease-cards">
-    <!-- Anthracnose -->
+    {% for disease in diseases %}
     <div class="disease-card">
         <div class="disease-image">
-            <img src="{% static 'mango_app/images/anthracnose.jpg' %}" alt="Anthracnose on mango leaves">
+            <img src="{% static disease.image_path %}" alt="{{ disease.name }}">
         </div>
         <div class="disease-content">
-            <h3>Anthracnose</h3>
-            <p class="scientific-name">Colletotrichum gloeosporioides</p>
-            <p class="disease-description">A fungal disease affecting mangoes in all growth stages, particularly in humid conditions.</p>
-            <a href="#" class="details-button">Show Details</a>
+            <h3>{{ disease.name }}</h3>
+            <p class="scientific-name">{{ disease.scientific_name }}</p>
+            <p class="disease-description">{{ disease.description }}</p>
+            <a href="{% url 'mango_app:project_detail' disease.id %}" class="details-button">View Details</a>
         </div>
     </div>
-
-    <!-- Powdery Mildew -->
-    <div class="disease-card">
-        <div class="disease-image">
-            <img src="{% static 'mango_app/images/powdery_mildew.jpg' %}" alt="Powdery Mildew on mango leaves">
-        </div>
-        <div class="disease-content">
-            <h3>Powdery Mildew</h3>
-            <p class="scientific-name">Oidium mangiferae</p>
-            <p class="disease-description">A fungal disease that affects flowers and young fruits, causing significant yield loss.</p>
-            <a href="#" class="details-button">Show Details</a>
-        </div>
-    </div>
-
-    <!-- Bacterial Black Spot -->
-    <div class="disease-card">
-        <div class="disease-image">
-            <img src="{% static 'mango_app/images/bacterial_black_spot.jpg' %}" alt="Bacterial Black Spot on mango fruit">
-        </div>
-        <div class="disease-content">
-            <h3>Bacterial Black Spot</h3>
-            <p class="scientific-name">Xanthomonas campestris pv. mangiferaeindicae</p>
-            <p class="disease-description">A bacterial disease that causes black lesions on leaves, stems, and fruits.</p>
-            <a href="#" class="details-button">Show Details</a>
-        </div>
-    </div>
-
-    <!-- Mango Malformation -->
-    <div class="disease-card">
-        <div class="disease-image">
-            <img src="{% static 'mango_app/images/mango_malformation.jpg' %}" alt="Mango Malformation">
-        </div>
-        <div class="disease-content">
-            <h3>Mango Malformation</h3>
-            <p class="scientific-name">Fusarium mangiferae</p>
-            <p class="disease-description">A fungal disease that causes abnormal growth of vegetative and floral parts.</p>
-            <a href="#" class="details-button">Show Details</a>
-        </div>
-    </div>
-
-    <!-- Stem End Rot -->
-    <div class="disease-card">
-        <div class="disease-image">
-            <img src="{% static 'mango_app/images/stem_end_rot.jpg' %}" alt="Stem End Rot on mango fruit">
-        </div>
-        <div class="disease-content">
-            <h3>Stem End Rot</h3>
-            <p class="scientific-name">Lasiodiplodia theobromae</p>
-            <p class="disease-description">A fungal disease that infects fruits during harvest and storage.</p>
-            <a href="#" class="details-button">Show Details</a>
-        </div>
-    </div>
+    {% endfor %}
 </div>
 
 <!-- Environmental Factors Section -->

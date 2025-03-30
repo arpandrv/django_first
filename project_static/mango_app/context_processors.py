@@ -7,6 +7,7 @@ def active_menu(request):
     
     active_section = {
         'is_home': path == '/' or path == '/home/',
+        'is_projects': '/projects/' in path,
         'is_pests': '/pests/' in path,
         'is_diseases': '/diseases/' in path,
         'is_surveillance': '/surveillance/' in path,

@@ -17,6 +17,11 @@
         <link rel="stylesheet" href="{% static 'mango_app/css/surveillance.css' %}">
     {% elif active_section.is_about %}
         <link rel="stylesheet" href="{% static 'mango_app/css/about.css' %}">
+    {% elif active_section.is_projects %}
+        <link rel="stylesheet" href="{% static 'mango_app/css/projects.css' %}">
+        {% if 'projects' in request.path and request.path != '/projects/' %}
+            <link rel="stylesheet" href="{% static 'mango_app/css/detail.css' %}">
+        {% endif %}
     {% endif %}
 </head>
 <body>
@@ -30,6 +35,7 @@
             <nav>
                 <ul>
                     <li><a href="{% url 'mango_app:home' %}" class="{% if active_section.is_home %}active{% endif %}">Home</a></li>
+                    <li><a href="{% url 'mango_app:projects' %}" class="{% if active_section.is_projects %}active{% endif %}">Project List</a></li>
                     <li><a href="{% url 'mango_app:pests' %}" class="{% if active_section.is_pests %}active{% endif %}">Pests</a></li>
                     <li><a href="{% url 'mango_app:diseases' %}" class="{% if active_section.is_diseases %}active{% endif %}">Diseases</a></li>
                     <li><a href="{% url 'mango_app:surveillance' %}" class="{% if active_section.is_surveillance %}active{% endif %}">Surveillance</a></li>
@@ -61,5 +67,6 @@
     
     {% load static %}
     <script src="{% static 'mango_app/js/mango-surveillance.js' %}"></script>
+    {% block extra_js %}{% endblock %}
 </body>
 </html>

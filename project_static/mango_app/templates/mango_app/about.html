@@ -24,6 +24,16 @@
             <p><strong>Objective 1 (Current Phase):</strong> Build an informative but static website using Django that provides information about known pests and plant diseases affecting mangoes which require growers' surveillance.</p>
             
             <p><strong>Objective 2 (Future Phase):</strong> Develop the output of Objective 1 into an interactive web application using Django that can be used by growers to calculate the surveillance effort required to be undertaken on their property.</p>
+            
+            <h3>Team Members</h3>
+            <div class="team-members">
+                {% for member in team_members %}
+                <div class="team-member">
+                    <p><strong>{{ member.name }}</strong></p>
+                    <p>Student ID: {{ member.student_id }}</p>
+                </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
     

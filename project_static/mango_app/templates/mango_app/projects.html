@@ -1,0 +1,74 @@
+{% extends 'mango_app/base.html' %}
+{% load static %}
+
+{% block title %}Mango Pests and Diseases - Project List{% endblock %}
+
+{% block content %}
+<h1>Mango Pests and Diseases</h1>
+
+<!-- Introduction Card -->
+<div class="card intro-card">
+    <h2>About Mango Pests and Diseases</h2>
+    <p>This page provides a comprehensive list of common pests and diseases affecting mango trees in Australia.</p>
+    <p>Regular surveillance and early detection of these threats are crucial for maintaining tree health, fruit quality, and maximizing yield.</p>
+</div>
+
+<!-- Filter Controls -->
+<div class="filter-controls">
+    <button class="filter-button active" data-filter="all">All Items</button>
+    <button class="filter-button" data-filter="pest">Pests Only</button>
+    <button class="filter-button" data-filter="disease">Diseases Only</button>
+</div>
+
+<!-- All Item Cards in a single grid container -->
+<div class="item-cards">
+    {% for item in mango_items %}
+    <div class="item-card" data-type="{{ item.item_type }}">
+        <div class="item-image">
+            <img src="{% static item.image_path %}" alt="{{ item.name }}">
+        </div>
+        <div class="item-content">
+            <h3>{{ item.name }}</h3>
+            <p class="scientific-name">{{ item.scientific_name }}</p>
+            <p class="type-indicator">Type: {{ item.get_item_type_display }}</p>
+            <p class="item-description">{{ item.description }}</p>
+            <a href="{% url 'mango_app:project_detail' item.id %}" class="details-button">View Details</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all filter buttons and item cards
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const itemCards = document.querySelectorAll('.item-card');
+    
+    // Add click event listeners to filter buttons
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Get filter value
+            const filterValue = this.getAttribute('data-filter');
+            
+            // Show/hide cards based on filter value
+            itemCards.forEach(card => {
+                if (filterValue === 'all' || card.getAttribute('data-type') === filterValue) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+</script>
+{% endblock %}

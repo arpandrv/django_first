@@ -1,5 +1,23 @@
 # Changelog
 
+## [Unreleased] - 2025-03-30
+
+### Added
+- Created a data model class (`MangoItem`) for pests and diseases
+- Added a unified "Project List" page showing all pests and diseases together
+- Implemented detail pages for each pest and disease with their own URLs
+- Added regex URL pattern for detail pages
+- Created team member information on the About page
+- Added CSS for detail and projects pages
+- Added filtering functionality to Project List page
+
+### Changed
+- Refactored pest and disease templates to use data from context instead of hardcoded HTML
+- Updated navigation menu to include the new Project List page
+- Modified the context processor to support active highlighting for the Project List
+- Replaced JavaScript modal dialogs with proper detail pages
+- Updated all "Show Details" links to point to their respective detail pages
+
 ## [Unreleased] - 2025-03-27
 
 ### Added

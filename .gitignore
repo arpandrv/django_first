@@ -10,6 +10,7 @@ media/
 # Virtual Environments
 venv/
 env/
+env_hit226/
 
 # IDEs and editors
 .vscode/

@@ -15,70 +15,19 @@
 
 <!-- All Pest Cards in a single grid container -->
 <div class="pest-cards">
-    <!-- Mango Seed Weevil -->
+    {% for pest in pests %}
     <div class="pest-card">
         <div class="pest-image">
-            <img src="{% static 'mango_app/images/mango_seed_weevil.jpg' %}" alt="Mango Seed Weevil">
+            <img src="{% static pest.image_path %}" alt="{{ pest.name }}">
         </div>
         <div class="pest-content">
-            <h3>Mango Seed Weevil</h3>
-            <p class="scientific-name">Sternochetus mangiferae</p>
-            <p class="pest-description">The adult weevil is 7-9 mm long, brown-black in color. It damages the mango seed, impacting fruit quality and export potential.</p>
-            <a href="#" class="details-button">Show Details</a>
+            <h3>{{ pest.name }}</h3>
+            <p class="scientific-name">{{ pest.scientific_name }}</p>
+            <p class="pest-description">{{ pest.description }}</p>
+            <a href="{% url 'mango_app:project_detail' pest.id %}" class="details-button">View Details</a>
         </div>
     </div>
-
-    <!-- Mango Fruit Fly -->
-    <div class="pest-card">
-        <div class="pest-image">
-            <img src="{% static 'mango_app/images/mango_fruit_fly.jpg' %}" alt="Mango Fruit Fly">
-        </div>
-        <div class="pest-content">
-            <h3>Mango Fruit Fly</h3>
-            <p class="scientific-name">Bactrocera dorsalis</p>
-            <p class="pest-description">A serious pest that lays eggs in ripening fruit. The larvae feed on the fruit pulp, causing decay and fruit drop.</p>
-            <a href="#" class="details-button">Show Details</a>
-        </div>
-    </div>
-
-    <!-- Mango Leaf Hopper -->
-    <div class="pest-card">
-        <div class="pest-image">
-            <img src="{% static 'mango_app/images/mango_leaf_hopper.jpg' %}" alt="Mango Leaf Hopper">
-        </div>
-        <div class="pest-content">
-            <h3>Mango Leaf Hopper</h3>
-            <p class="scientific-name">Idioscopus spp.</p>
-            <p class="pest-description">Small insects that feed on plant sap from young shoots, leaves, and inflorescences.</p>
-            <a href="#" class="details-button">Show Details</a>
-        </div>
-    </div>
-
-    <!-- Mango Tip Borer -->
-    <div class="pest-card">
-        <div class="pest-image">
-            <img src="{% static 'mango_app/images/mango_tip_borer.jpg' %}" alt="Mango Tip Borer">
-        </div>
-        <div class="pest-content">
-            <h3>Mango Tip Borer</h3>
-            <p class="scientific-name">Chlumetia transversa</p>
-            <p class="pest-description">Moths that lay eggs on young shoots. The larvae bore into the shoots and flower panicles.</p>
-            <a href="#" class="details-button">Show Details</a>
-        </div>
-    </div>
-
-    <!-- Mango Scale Insect -->
-    <div class="pest-card">
-        <div class="pest-image">
-            <img src="{% static 'mango_app/images/mango_scale_insect.jpg' %}" alt="Mango Scale Insect">
-        </div>
-        <div class="pest-content">
-            <h3>Mango Scale Insect</h3>
-            <p class="scientific-name">Aulacaspis tubercularis</p>
-            <p class="pest-description">Small, immobile insects that attach to plant parts and feed on sap.</p>
-            <a href="#" class="details-button">Show Details</a>
-        </div>
-    </div>
+    {% endfor %}
 </div>
 
 <!-- Surveillance Recommendations -->
