@@ -37,6 +37,40 @@
             <p>{{ item.detailed_info }}</p>
         </div>
         
+        <!-- Characteristics Table -->
+        <div class="card">
+            <h3>Characteristics</h3>
+            <div class="table-responsive">
+                <table class="characteristics-table">
+                    <tr>
+                        <th>Affected Plant Parts:</th>
+                        <td>{{ item.affected_parts }}</td>
+                    </tr>
+                    <tr>
+                        <th>Symptoms:</th>
+                        <td>{{ item.symptoms }}</td>
+                    </tr>
+                    <tr>
+                        <th>Lifecycle:</th>
+                        <td>{{ item.lifecycle }}</td>
+                    </tr>
+                    <tr>
+                        <th>Seasonal Patterns:</th>
+                        <td>{{ item.seasonal_patterns }}</td>
+                    </tr>
+                    <tr>
+                        <th>Severity:</th>
+                        <td>{{ item.severity }}</td>
+                    </tr>
+                    <tr>
+                        <th>Detection Methods:</th>
+                        <td>{{ item.detection_methods }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Surveillance Recommendations -->
         <div class="card">
             <h3>Surveillance Recommendations</h3>
             {% if item.item_type == 'pest' %}
@@ -57,26 +91,71 @@
             </ul>
             {% endif %}
         </div>
-    </div>
-    
-    <!-- Related Items Section -->
-    <div class="related-items">
-        <h3>Related {{ item.get_item_type_display }}s</h3>
-        <div class="related-items-grid">
-            <!-- This would be populated with actual related items in a full implementation -->
-            <p>See the <a href="{% url 'mango_app:projects' %}">full list of pests and diseases</a> for more information.</p>
+        
+        <!-- Environmental Factors for Diseases -->
+        {% if item.item_type == 'disease' %}
+        <div class="card">
+            <h3>Environmental Factors</h3>
+            <div class="table-responsive">
+                <table class="env-factors">
+                    <thead>
+                        <tr>
+                            <th>Temperature</th>
+                            <th>Humidity</th>
+                            <th>Rainfall</th>
+                            <th>Season</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            {% if item.name == 'Anthracnose' %}
+                                <td>25-28°C</td>
+                                <td>High (>80%)</td>
+                                <td>High</td>
+                                <td>Wet season</td>
+                            {% elif item.name == 'Powdery Mildew' %}
+                                <td>20-25°C</td>
+                                <td>Low to moderate</td>
+                                <td>Low</td>
+                                <td>Dry season</td>
+                            {% elif item.name == 'Bacterial Black Spot' %}
+                                <td>25-30°C</td>
+                                <td>High</td>
+                                <td>High</td>
+                                <td>Wet season</td>
+                            {% elif item.name == 'Mango Malformation' %}
+                                <td>15-25°C</td>
+                                <td>Moderate</td>
+                                <td>Moderate</td>
+                                <td>Flowering season</td>
+                            {% elif item.name == 'Stem End Rot' %}
+                                <td>25-30°C</td>
+                                <td>High</td>
+                                <td>Varies</td>
+                                <td>Harvest and post-harvest</td>
+                            {% else %}
+                                <td>Varies</td>
+                                <td>Varies</td>
+                                <td>Varies</td>
+                                <td>Varies</td>
+                            {% endif %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
+        {% endif %}
     </div>
-</div>
-
-<!-- Back to Projects Button -->
-<div class="action-buttons">
-    <a href="{% url 'mango_app:projects' %}" class="button">Back to All Projects</a>
     
-    {% if item.item_type == 'pest' %}
-    <a href="{% url 'mango_app:pests' %}" class="button">View All Pests</a>
-    {% else %}
-    <a href="{% url 'mango_app:diseases' %}" class="button">View All Diseases</a>
-    {% endif %}
+    <!-- Navigation Links -->
+    <div class="action-buttons">
+        <a href="{% url 'mango_app:projects' %}" class="button">Back to All Projects</a>
+        
+        {% if item.item_type == 'pest' %}
+        <a href="{% url 'mango_app:pests' %}" class="button">View All Pests</a>
+        {% else %}
+        <a href="{% url 'mango_app:diseases' %}" class="button">View All Diseases</a>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}

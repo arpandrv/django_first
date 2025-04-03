@@ -129,3 +129,35 @@
         align-items: stretch;
     }
 }
+
+
+
+
+/* Environmental Factors Table */
+.env-factors {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Add subtle shadow for consistency */
+}
+
+.env-factors th, 
+.env-factors td {
+    padding: 12px; /* Slightly increase padding for better readability */
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.env-factors th {
+    background-color: #e0f2e0;
+    color: #333;
+    font-weight: normal;
+}
+
+.env-factors tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.env-factors tr:hover {
+    background-color: rgba(46, 125, 50, 0.1);
+}
