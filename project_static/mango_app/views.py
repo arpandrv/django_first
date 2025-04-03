@@ -144,7 +144,9 @@ class AboutView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['team_members'] = [
-            {'name': 'Jane Doe', 'student_id': 'S123456'},
-            {'name': 'John Smith', 'student_id': 'S789012'},
+            {'name': 'Arpan Nepal', 'student_id': '371945'},
+            {'name': 'Samir Bajgain', 'student_id': '369784'},
+            {'name': 'Abdullah AL mahmud Didar', 'student_id': '386212'},
+            {'name': 'Abishek Kandel', 'student_id': '387576'},
         ]
         return context
